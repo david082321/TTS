@@ -43,7 +43,7 @@ public class TtsDictManger {
      */
     public void updateDict() {
         readDicFile();
-        APP.showToast("更新语音校正词典成功.路径:\n" + file.getAbsolutePath());
+        APP.showToast("更新語音校正詞典成功.路徑:\n" + file.getAbsolutePath());
 
     }
 
@@ -55,7 +55,7 @@ public class TtsDictManger {
             try {
                 boolean is = Objects.requireNonNull(file.getParentFile()).mkdirs();
                 if (!is) {
-                    Log.e("DICT", "创建文件夹：" + file.getParentFile().getAbsolutePath() + "出错");
+                    Log.e("DICT", "建立資料夾：" + file.getParentFile().getAbsolutePath() + "出错");
                 }
                 FileWriter fw = new FileWriter(file);
                 fw.write("佛然=bo 2 ran 2\n朱重八=zhu 1 chong 2 ba 1");
