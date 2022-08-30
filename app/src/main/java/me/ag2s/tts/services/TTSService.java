@@ -110,7 +110,7 @@ public class TTSService extends TextToSpeechService {
             if (isSynthesizing) {
                 TTSService.this.webSocket = getOrCreateWs();
             }
-            updateNotification("TTS服务-错误中", reason);
+            updateNotification("TTS服務-錯誤中", reason);
 
 
         }
@@ -124,9 +124,9 @@ public class TTSService extends TextToSpeechService {
             if (isSynthesizing) {
                 TTSService.this.webSocket = getOrCreateWs();
             }
-            updateNotification("TTS服务-错误中", t.getMessage());
+            updateNotification("TTS服務-錯誤中", t.getMessage());
 
-            //APP.showToast("发生错误:" + t.getMessage());
+            //APP.showToast("發生錯誤:" + t.getMessage());
 
 
         }
@@ -174,7 +174,7 @@ public class TTSService extends TextToSpeechService {
 
                 try {
                     String temp = bytes.substring(startIndex, endIndex).utf8();
-                    Log.v(TAG, "当前Mime:" + temp);
+                    Log.v(TAG, "目前Mime:"   temp);
                     if (temp.startsWith("audio")) {
                         currentMime = temp;
                     } else {
@@ -184,7 +184,7 @@ public class TTSService extends TextToSpeechService {
                         if ("audio/x-wav".equals(currentMime) && bytes.lastIndexOf("RIFF".getBytes(StandardCharsets.UTF_8)) != -1) {
                             //去除WAV文件的文件头，解决播放开头时的杂音
                             audioIndex += 44;
-                            Log.v(TAG, "移除WAV文件头");
+                            Log.v(TAG, "移除WAV文件頭");
                         }
 
 
@@ -222,7 +222,7 @@ public class TTSService extends TextToSpeechService {
     Notification.Builder notificationBuilder;
 
     final String notificationChannelId = TTSService.class.getName();
-    final String notificationName = "文字转语音服务通知";
+    final String notificationName = "文字轉語音服務通知";
     private static final int NOTIFICATION_ID = 1;
 
 
@@ -266,8 +266,8 @@ public class TTSService extends TextToSpeechService {
                 .setVibrate(null)
                 .setSound(null)
                 .setLights(0, 0, 0)
-                .setContentTitle("TTS服务")
-                .setContentText("TTS服务正在运行...");
+                .setContentTitle("TTS服務")
+                .setContentText("TTS服務正在執行...");
 
         //停止前台服务
         Notification.Action action;
@@ -347,7 +347,7 @@ public class TTSService extends TextToSpeechService {
         if (null != mWakeLock && !mWakeLock.isHeld()) {
             mWakeLock.acquire(60 * 20 * 1000);
             GcManger.getInstance().doGC();
-            Log.e(TAG, "刷新WakeLock20分钟");
+            Log.e(TAG, "重新整理WakeLock20分鐘");
         }
     }
 
@@ -406,15 +406,15 @@ public class TTSService extends TextToSpeechService {
 
                 if (!TextUtils.isEmpty(mime) && mime.startsWith("audio")) {
                     audioTrackIndex = i;
-                    Log.d(TAG, "找到音频流的索引为：" + audioTrackIndex);
-                    Log.d(TAG, "找到音频流的mime为：" + mime);
+                    Log.d(TAG, "找到音軌的索引為："   audioTrackIndex);
+                    Log.d(TAG, "找到音軌的mime為："   mime);
                     break;
                 }
             }
-            //没有找到音频流的情况下
+            //沒有找到音軌的情況下
             if (audioTrackIndex == -1) {
-                Log.e(TAG, "initAudioDecoder: 没有找到音频流");
-                updateNotification("TTS服务-错误中", "没有找到音频流");
+                Log.e(TAG, "initAudioDecoder: 沒有找到音軌");
+                updateNotification("TTS服務-錯誤中", "沒有找到音軌");
                 cb.done();
                 isSynthesizing = false;
                 return;
@@ -682,7 +682,7 @@ public class TTSService extends TextToSpeechService {
         boolean success = getOrCreateWs().send(ssml.toString());
         //Log.e(TAG,"SSS:"+success);
         if (!success && isSynthesizing) {
-            updateNotification("TTS服务-重试中", "第一次发送不成功，正在重试第二次");
+            updateNotification("TTS服務-重試中", "第一次發送不成功，正在重試第二次");
             getOrCreateWs().send(ssml.toString());
         }
 
@@ -843,7 +843,7 @@ public class TTSService extends TextToSpeechService {
         }
         isSynthesizing = false;
         mData.clear();
-        updateNotification("TTS服务-停止中", "调用onStop，停止生成。");
+        updateNotification("TTS服務-停止中", "呼叫onStop，停止生成。");
 
     }
 
@@ -861,7 +861,7 @@ public class TTSService extends TextToSpeechService {
                 request.getVariant());
         if (load == TextToSpeech.LANG_NOT_SUPPORTED) {
             callback.error(TextToSpeech.ERROR_INVALID_REQUEST);
-            Log.e(TAG, "语言不支持:" + request.getLanguage());
+            Log.e(TAG, "語言不支援:"   request.getLanguage());
             return;
         }
 
@@ -882,7 +882,7 @@ public class TTSService extends TextToSpeechService {
 
             isSynthesizing = true;
             sendText(request, callback);
-            updateNotification("TTS服务-生成中", request.getCharSequenceText().toString());
+            updateNotification("TTS服務-生成中", request.getCharSequenceText().toString());
 
 
             while (isSynthesizing) {
@@ -905,7 +905,7 @@ public class TTSService extends TextToSpeechService {
         }
         isSynthesizing = false;
 
-        updateNotification("TTS服务-闲置中", "当前没有生成任务");
+        updateNotification("TTS服務-閒置中", "目前沒有生成任務");
 
 
     }
