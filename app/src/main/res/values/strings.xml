@@ -17,21 +17,21 @@
     <string name="tts_sample_ko">이것 은 음성 합성 예시 이다.</string>
     <string name="tts_sample_ar">هذا هو مثال على تركيب الكلام</string>
 
-    <string name="set_tts">设置TTS</string>
-    <string name="kill_battery">电池优化</string>
-    <string name="update_dic">更新词典</string>
-    <string name="use_custom_language">自定义</string>
-    <string name="tts_voice_style">讲话风格(无效值将将忽略,需要打开预览语音才能用)</string>
-    <string name="tts_voice_style_degree">风格强度与合成音量</string>
-    <string name="test">测试</string>
+    <string name="set_tts">設定TTS</string>
+    <string name="kill_battery">電池最佳化</string>
+    <string name="update_dic">更新詞典</string>
+    <string name="use_custom_language">自訂</string>
+    <string name="tts_voice_style">講話風格(無效值將將忽略,需要打開預覽語音才能用)</string>
+    <string name="tts_voice_style_degree">風格強度與合成音量</string>
+    <string name="test">測試</string>
 
 
-    <string name="check_update">检查更新</string>
-    <string name="battery_optimizations">电池优化</string>
-    <string name="audio_format">音频流格式</string>
-    <string name="use_dict">使用词典</string>
+    <string name="check_update">檢查更新</string>
+    <string name="battery_optimizations">電池最佳化</string>
+    <string name="audio_format">音軌格式</string>
+    <string name="use_dict">使用詞典</string>
     <string name="split_sentence">使用分句</string>
-    <string name="use_preview">预览语音</string>
+    <string name="use_preview">預覽語音</string>
 
 
 </resources>
