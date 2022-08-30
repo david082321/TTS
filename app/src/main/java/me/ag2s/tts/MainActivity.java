@@ -156,7 +156,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Seek
 
         });
 
-        Toast.makeText(this, "选择预览版语音时,如果卡住了，杀掉应用重进！！！", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "選擇預覽版語音時,如果卡住了，殺掉應用重進！！！", Toast.LENGTH_LONG).show();
 
 
         if (APP.getBoolean(Constants.USE_AUTO_UPDATE, true)) {
@@ -207,7 +207,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Seek
         APP.putInt(Constants.VOICE_VOLUME, volumeValue);
         binding.ttsStyleDegree.setProgress(styleDegree);
 
-        String format = String.format(Locale.US, "强度:%01d.%02d 音量:%03d", styleDegree / TtsStyle.DEFAULT_DEGREE, styleDegree % TtsStyle.DEFAULT_DEGREE, volumeValue);
+        String format = String.format(Locale.US, "強度:%01d.%02d 音量:%03d", styleDegree / TtsStyle.DEFAULT_DEGREE, styleDegree % TtsStyle.DEFAULT_DEGREE, volumeValue);
         binding.ttsStyleDegreeValue.setText(format);
     }
 
@@ -336,8 +336,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Seek
 
             runOnUiThread(() -> new AlertDialog.Builder(MainActivity.this)
                     .setTitle("有新版本")
-                    .setMessage("发现新版本:" + tag + "\n" + body)
-                    .setPositiveButton("确定", (dialog, which) -> {
+                    .setMessage("發現新版本:" + tag + "\n" + body)
+                    .setPositiveButton("確定", (dialog, which) -> {
                                 Intent intent = new Intent(Intent.ACTION_VIEW);
                                 intent.setData(Uri.parse(downloadUrl));
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
